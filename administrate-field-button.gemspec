@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "administrate-field-button"
-  spec.version = '0.1.5'
+  spec.version = '0.1.6'
   spec.authors = ["Jubilee"]
   spec.email = ["jubilee2@gmail.com"]
 
