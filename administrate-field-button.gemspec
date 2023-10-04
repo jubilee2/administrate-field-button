@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["Jubilee"]
   spec.email = ["jubilee2@gmail.com"]
 
-  spec.summary = "TODO: Write a short summary, because RubyGems requires one."
+  spec.summary = "Making Administrate support action buttons."
   spec.description = "TODO: Write a longer description or delete this line."
   spec.homepage = "https://github.com/jubilee2/administrate-field-button"
   spec.license = "MIT"
