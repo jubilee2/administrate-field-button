@@ -71,19 +71,6 @@ def my_button
 end
 ```
 
-## Options
-
-Customize the label displayed above the button using the `field_label` option:
-
-```ruby
-class MyResourceDashboard < Administrate::BaseDashboard
-  ATTRIBUTE_TYPES = {
-    # ...
-    my_button: Field::Button.with_options(field_label: 'My Custom Button'),
-  }.freeze
-end
-```
-
 ## Contributing
 
 We welcome bug reports and pull requests on [GitHub](https://github.com/jubilee2/administrate-field-button). Please feel free to contribute to the project.
