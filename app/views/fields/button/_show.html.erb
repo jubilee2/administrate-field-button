@@ -4,6 +4,7 @@
       field.data,
       [field.attribute, namespace, field.resource],
       method: :post,
+      class: "button",
       data: { confirm: t("administrate.actions.confirm") }
     ) if accessible_action?(field.resource, field.attribute) %>
   <% end %>
