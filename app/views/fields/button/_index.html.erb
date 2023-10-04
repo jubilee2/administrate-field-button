@@ -1,8 +1,8 @@
-<% if existing_action?(resource, field.attribute) %>
+<% if existing_action?(field.resource.class, field.attribute) %>
   <td><%= link_to(
     t("administrate.actions.#{field.attribute}"),
-    [namespace, resource, field.attribute],
+    [namespace, field.resource, field.attribute],
     method: :post,
     data: { confirm: t("administrate.actions.confirm") }
-  ) if accessible_action?(resource, field.attribute) %></td>
+  ) if accessible_action?(field.resource, field.attribute) %></td>
 <% end %>
