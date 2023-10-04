@@ -1,18 +1,10 @@
-<%#
-# String Show Partial
-
-This partial renders a string attribute,
-to be displayed on a resource's show page.
-
-By default, the attribute is rendered as text with whitespace preserved.
-
-## Local variables:
-
-- `field`:
-  An instance of [Administrate::Field::String][1].
-  A wrapper around the String pulled from the database.
-
-[1]: http://www.rubydoc.info/gems/administrate/Administrate/Field/String
-%>
-
-<div class="preserve-whitespace"><%# field.data %></div>
+<div class="preserve-whitespace">
+  <% if existing_action?(field.resource.class, field.attribute) %>
+    <%= link_to(
+      field.data,
+      [field.attribute, namespace, field.resource],
+      method: :post,
+      data: { confirm: t("administrate.actions.confirm") }
+    ) if accessible_action?(field.resource, field.attribute) %>
+  <% end %>
+</div>
