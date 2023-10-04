@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["jubilee2@gmail.com"]
 
   spec.summary = "Making Administrate support action buttons."
-  spec.description = "TODO: Write a longer description or delete this line."
+  spec.description = "Extend Administrate with custom action buttons."
   spec.homepage = "https://github.com/jubilee2/administrate-field-button"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
