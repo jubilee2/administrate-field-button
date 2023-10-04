@@ -2,11 +2,12 @@
 
 require_relative "button/version"
 
+require 'administrate/field/base'
+
 module Administrate
   module Field
-    module Button
-      class Error < StandardError; end
-      # Your code goes here...
+    class Button < Administrate::Field::Base
+
     end
   end
 end
