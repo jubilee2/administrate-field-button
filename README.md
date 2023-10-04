@@ -1,35 +1,89 @@
 # Administrate::Field::Button
 
-TODO: Delete this and the text below, and describe your gem
+**Administrate Field Button** is a custom field for the [Administrate](https://github.com/thoughtbot/administrate) gem that allows you to add customizable buttons to your resource views in the Administrate dashboard.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/administrate/field/button`. To experiment with that code, run `bin/console` for an interactive prompt.
+![Administrate Field Button Screenshot](/path/to/screenshot.png)
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+Add this line to your application's Gemfile:
 
-Install the gem and add to the application's Gemfile by executing:
+```ruby
+gem 'administrate-field-button', github: 'jubilee2/administrate-field-button'
+```
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+And then execute:
 
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+```shell
+bundle install
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Add the custom field to your dashboard:
 
-## Development
+   ```ruby
+   class MyResourceDashboard < Administrate::BaseDashboard
+     # ...
+     ATTRIBUTE_TYPES = {
+       # ...
+       my_button: Field::Button,
+     }.freeze
+     # ...
+   end
+   ```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+2. In your model to add dummy button method
+```ruby
+  def my_button
+  end
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+3. in the routes.rb add folloing post action
+```ruby
+  namespace :admin do
+    resources :my_resource do
+      member do
+        post :my_button
+      end
+    end
+  end
+```
+
+4. add action in comtroll doing what you want to do
+```ruby
+  def my_button
+    find_resource.count = find_resource.count + 1
+    flash[:notice] = 'action done'
+    redirect_back fallback_location: root_path
+  end
+```
+
+## Options
+
+it's not implaciment yet
+
+- `field_label`: Customize the label displayed above the button.
+
+   ```ruby
+   class MyResourceDashboard < Administrate::BaseDashboard
+     ATTRIBUTE_TYPES = {
+       # ...
+       my_button: Field::Button.with_options(field_label: 'My Custom Button'),
+     }.freeze
+   end
+   ```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/administrate-field-button.
+Bug reports and pull requests are welcome on GitHub at [https://github.com/jubilee2/administrate-field-button](https://github.com/jubilee2/administrate-field-button).
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+This gem is available as open source under the terms of the [MIT License](LICENSE.txt).
+
+## Additional Resources
+
+- [Administrate Documentation](https://github.com/thoughtbot/administrate)
+- [Administrate Custom Fields](https://github.com/thoughtbot/administrate/blob/main/docs/custom_fields.md)
+
