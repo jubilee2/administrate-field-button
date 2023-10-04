@@ -1,4 +1,4 @@
-<% if existing_action?(collection_presenter.resource_name, field.attribute) %>
+<% if existing_action?(resource, field.attribute) %>
   <td><%= link_to(
     t("administrate.actions.#{field.attribute}"),
     [namespace, resource, field.attribute],
