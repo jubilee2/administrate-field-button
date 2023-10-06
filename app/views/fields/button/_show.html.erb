@@ -1,11 +1,9 @@
-<div class="preserve-whitespace">
-  <% if existing_action?(field.resource.class, field.attribute) %>
-    <%= link_to(
-      field.data,
-      [field.attribute, namespace, field.resource],
-      method: :post,
-      class: "button",
-      data: { confirm: t("administrate.actions.confirm") }
-    ) if accessible_action?(field.resource, field.attribute) %>
-  <% end %>
-</div>
+<% if existing_action?(field.resource.class, field.attribute) %>
+  <%= link_to(
+    field.options.fetch(:label_of_button, "Action"),
+    [field.attribute, namespace, field.resource],
+    method: :post,
+    class: "button",
+    data: { confirm: t("administrate.actions.confirm") }
+  ) if accessible_action?(field.resource, field.attribute) %>
+<% end %>
