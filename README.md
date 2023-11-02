@@ -31,6 +31,10 @@ class MyResourceDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     # ...
     my_button: Field::Button,
+    my_button2: Field::Button.with_options(
+      label_of_button: 'Foo action',
+    ),
+
   }.freeze
   # ...
 end
@@ -41,7 +45,8 @@ end
 Create a dummy button method in your model to enable the button:
 
 ```ruby
-def my_button
+class Book < ApplictionRecord
+  attr_reader :my_button, :my_button2
 end
 ```
 
