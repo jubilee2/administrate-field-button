@@ -33,6 +33,7 @@ class MyResourceDashboard < Administrate::BaseDashboard
     my_button: Field::Button,
     my_button2: Field::Button.with_options(
       label_of_button: 'Foo action',
+      confirm: false
     ),
 
   }.freeze
