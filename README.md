@@ -34,6 +34,7 @@ class MyResourceDashboard < Administrate::BaseDashboard
     my_button2: Field::Button.with_options(
       label_of_button: 'Foo action',
       method: :post,
+      branch: ->(field){ field.resource.active? },
       confirm: false
     ),
 
