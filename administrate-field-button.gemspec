@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "administrate-field-button"
-  spec.version = "0.1.12"
+  spec.version = "0.1.13"
   spec.authors = ["Jubilee"]
   spec.email = ["jubilee2@gmail.com"]
 
@@ -31,7 +31,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
-  spec.add_dependency "administrate"
+  spec.add_dependency "administrate", ">= 0.18.0"
   spec.add_dependency "rails"
 
   # For more information and examples about making a new gem, check out our

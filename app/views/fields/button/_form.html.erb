@@ -6,7 +6,7 @@
     <%= link_to(
       field.options.fetch(:label_of_button, "Action"),
       [field.attribute, namespace, field.resource],
-      method: :post,
+      method: field.options.fetch(:method, :post),
       class: "button",
         data: field.confirm? ? { confirm: t("administrate.actions.confirm") } : {}
     ) if accessible_action?(field.resource, field.attribute) %>
