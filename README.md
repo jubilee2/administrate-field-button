@@ -79,6 +79,33 @@ def my_button
 end
 ```
 
+## Customization Options
+
+### Options for `Field::Button`
+
+When using `Field::Button`, you have several customization options available:
+
+- **label_of_button** (String): Defines the label or text displayed on the button.
+  
+- **method** (Symbol): Specifies the HTTP method used for the button action (e.g., `:post`, `:put`, `:delete`). Default is `:post`.
+  
+- **branch** (Proc): Takes a block that, when evaluated, determines whether the button should be displayed based on conditions involving the resource. This could be a boolean condition or a more complex logic.
+  
+- **confirm** (Boolean): Enables or disables a confirmation dialog before executing the button action. Default is `false`.
+
+#### Example:
+
+```ruby
+my_button: Field::Button.with_options(
+  label_of_button: 'Custom Action',
+  method: :patch,
+  branch: ->(field) { field.resource.published? && field.resource.approved? },
+  confirm: true
+),
+```
+
+Adjust these options based on your specific use case and desired behavior for the button in your Administrate dashboard.
+
 ## Contributing
 
 We welcome bug reports and pull requests on [GitHub](https://github.com/jubilee2/administrate-field-button). Please feel free to contribute to the project.
